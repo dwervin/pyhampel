@@ -105,4 +105,38 @@ def hampel_filter_df(df: pd.DataFrame, vals_col: str, time_col=None, win_size=30
     return pd.concat([orig_vals, filtered, outliers, outlier_idx], axis=1)
 
 
+def hampel_filter_list_of_ts(ts_list: list, vals_col: str, time_col=None,
+                             win_size: int = 30, num_dev: int = 3, center_win: bool = True):
+    """
+    Function returns a list of filtered dataframes, each consisting of original columns along with
+    the Hampel filtered data, outlier values and boolean flags where outliers found.
+
+    Parameters
+    ----------
+    ts_list: list
+        List of time-series dataframes
+    vals_col: str
+        Single column name that contains values that need to be filtered.
+    time_col: str
+        Name of column that contains dates or timestamps
+    win_size: int
+        Size of sliding window for filtering.  Essentially the number of time steps to be considered when filtering.
+    num_dev: int
+        Number of standard deviations to consider when detecting values that would be considered outliers.
+    center_win: Boolean
+        Boolean value that determines whether the window is centered about the point being filtered?  Default=True.
+        If False, point is at the leading edge (i.e. right side) of window  calculation.
+
+    Returns
+    -------
+    Returns a list of filtered dataframes, each consisting of original columns along with
+    the Hampel filtered data, outlier values and boolean flags where outliers found.
+    """
+    filtered_ts = []
+
+    for ts in ts_list:
+        filtered_ts.append(hampel_filter_df(ts, vals_col, time_col, win_size, num_dev, center_win))
+
+    return filtered_ts
+
 
