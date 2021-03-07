@@ -25,6 +25,7 @@ def ingest_list_of_files(data_files: list, conv: dict, header: int = 0) -> pd.Da
     df: pd.DataFrame
         Pandas dataframe containing data from all files.
     """
+    print("__name__:", __name__)
 
     li = []
 
