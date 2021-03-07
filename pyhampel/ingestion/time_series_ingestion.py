@@ -1,9 +1,9 @@
-
 import pandas as pd
-import numpy as np
+
+__all__ = ["ingest_list_of_files"]
 
 
-def ingest_list_of_files(data_files: list, conv: dict, header: int = 0):
+def ingest_list_of_files(data_files: list, conv: dict, header: int = 0) -> pd.DataFrame:
     """
     This function reads data contained in the list of files and returns a single dataframe
     containing all the data.
@@ -16,7 +16,7 @@ def ingest_list_of_files(data_files: list, conv: dict, header: int = 0):
         dictionary containing column names and data types for columns.  This will override default
         data types inferred by pandas when reading data.
             e.g.:
-            conv = {'MEASR_COMP_ID': str}
+            conv = {'MEASR_ID': str}
     header: int
         Integer designation for row number containing headers in data file.
 
