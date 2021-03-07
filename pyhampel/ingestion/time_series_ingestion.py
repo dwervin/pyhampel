@@ -1,0 +1,37 @@
+
+import pandas as pd
+import numpy as np
+
+
+def ingest_list_of_files(data_files: list, conv: dict, header: int = 0):
+    """
+    This function reads data contained in the list of files and returns a single dataframe
+    containing all the data.
+
+    Parameters
+    ----------
+    data_files: list
+        list of data files to read.  These files should all have the same headers and number of columns
+    conv: dict
+        dictionary containing column names and data types for columns.  This will override default
+        data types inferred by pandas when reading data.
+            e.g.:
+            conv = {'MEASR_COMP_ID': str}
+    header: int
+        Integer designation for row number containing headers in data file.
+
+    Returns
+    -------
+    df: pd.DataFrame
+        Pandas dataframe containing data from all files.
+    """
+
+    li = []
+
+    for filename in data_files:
+        frame = pd.read_csv(filename, index_col=None, header=header, converters=conv)
+        li.append(frame)
+
+    df = pd.concat(li, axis=0, ignore_index=True)
+
+    return df
