@@ -3,6 +3,7 @@ This module contains filtering functions
 """
 
 import pandas as pd
+import numpy as np
 
 
 def hampel_filter_df(df: pd.DataFrame, vals_col: str, time_col=None, win_size=30, num_dev=3,
@@ -33,6 +34,7 @@ def hampel_filter_df(df: pd.DataFrame, vals_col: str, time_col=None, win_size=30
     Function returns a full dataframe consisting of original values columns along with
     the Hampel filtered data, outlier values and boolean flags where outliers found.
     """
+
     if (time_col != None):
         if (time_col not in list(df.columns)):
             raise Exception("Timestamp column '{}' is missing!".format(time_col))
