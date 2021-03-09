@@ -25,8 +25,8 @@ def hampel_mp(g_list: list, vals_col: str, time_col=None, win_size=30, num_dev=3
         # Step 2: Define callback function to collect the output in 'results' to take
         # advantage of asynchronous calls.
         def collect_result(result):
-            #global results
-            print("Running collect")
+            # global results
+            # print("Running collect")
             results.append(result)
 
         # Step 3: Use loop to parallelize. This asynchronous call uses the collect_result
