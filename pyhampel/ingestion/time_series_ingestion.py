@@ -34,7 +34,7 @@ def ingest_list_of_files(data_files: list, conv: dict, header: int = 0) -> pd.Da
         frame = pd.read_csv(filename, index_col=None, header=header, converters=conv)
         if len(cols) == 0:
             cols = list(frame.columns)
-        elif set(col) != set(list(frame.columns)):
+        elif set(cols) != set(list(frame.columns)):
             raise Exception("Can't read files. Column names in files do not match.")
         li.append(frame)
 
