@@ -20,6 +20,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    packages=setuptools.find_packages(),
+    packages=['pandas', 'numpy', 'multiprocessing'],
     python_requires=">=3.6",
 )
+
