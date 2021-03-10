@@ -1,15 +1,19 @@
-import setuptools
+import pathlib
+from setuptools import setup
 
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+# The directory containing this file
+HERE = pathlib.Path(__file__).parent
 
-setuptools.setup(
+# The text of the README file
+README = (HERE / "README.md").read_text()
+
+setup(
     name="pyhampel", # Replace with your own username
     version="0.1.1",
     author="Py Hampel",
     author_email="pyhampel@gmail.com",
     description="A flexible package to apply Hampel filter to time series data.  Identify outliers and filter time series.",
-    long_description=long_description,
+    long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/dwervin/pyhampel",
     project_urls={
@@ -20,7 +24,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    packages=setuptools.find_packages(),
-    python_requires=">=3.6",
+    packages=["pyhampel"],
+    python_requires=">=3.7",
 )
 
