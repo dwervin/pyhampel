@@ -9,7 +9,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="pyhampel", # Replace with your own username
-    version="0.2.1",
+    version="0.3.1",
     author="Py Hampel",
     author_email="pyhampel@gmail.com",
     description="A flexible package to apply Hampel filter to time series data.  Identify outliers and filter time series.",
@@ -25,6 +25,12 @@ setup(
         "Operating System :: OS Independent",
     ],
     packages=["pyhampel","pyhampel.src","pyhampel.utils","pyhampel.ingestion"],
+    install_requires=[
+        'pandas',
+        'multiprocessing',
+        'plotly',
+        'ipywidgets',
+    ],
     python_requires=">=3.7",
 )
 
