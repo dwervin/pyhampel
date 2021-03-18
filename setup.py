@@ -24,7 +24,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    packages=["pyhampel","pyhampel.src","pyhampel.utils","pyhampel.ingestion"],
+    packages=["pyhampel","pyhampel.src","pyhampel.utils","pyhampel.ingestion","pyhampel.dataviz"],
     install_requires=[
         'pandas',
         'multiprocessing',
