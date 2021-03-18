@@ -9,12 +9,12 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="pyhampel", # Replace with your own username
-    version="0.3.2",
+    version="0.3.3",
     author="Py Hampel",
     author_email="pyhampel@gmail.com",
     description="A flexible package to apply Hampel filter to time series data.  Identify outliers and filter time series.",
     long_description=README,
-    long_description_content_type="text/markdown",
+    long_description_contet_type="text/markdown",
     url="https://github.com/dwervin/pyhampel",
     project_urls={
         "Bug Tracker": "https://github.com/dwervin/pyhampel/issues",
