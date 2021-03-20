@@ -101,5 +101,3 @@ def hampel_filter_df(df: pd.DataFrame, vals_col: str, time_col=None, win_size=30
     # The following returns a full dataframe consisting of original values columns
     # along with the Hampel filtered data, outlier values and boolean flags where outliers found.
     return pd.concat([orig_vals, filtered, outliers, outlier_idx], axis=1)
-
-
