@@ -1,8 +1,8 @@
 import plotly.graph_objects as go
 from ipywidgets import widgets
-from ..src.filtering import hampel_filter_df
+from ..src.filtering import hampel_filter_df, hampel_filter_with_dev_df
 
-__all__ = ["hampel_interactive"]
+__all__ = ["hampel_interactive", "hampel_interactive_with_dev"]
 
 
 def hampel_interactive(df_list: list, key_col, orig_col: str, filtered_col: str, outlier_col: str):
@@ -172,10 +172,10 @@ def hampel_interactive_with_dev(df_list: list, key_col, orig_col: str, filtered_
         if recalc_outlier.value:
             # noinspection PyTypeChecker
             temp_df = df_list[list_idx.value][[key_col, orig_col]]
-            new_df = hampel_filter_df(temp_df, vals_col=orig_col, time_col=None,
-                                      win_size=window_size.value,
-                                      num_dev=dev_size.value,
-                                      center_win=center_window.value)
+            new_df = hampel_filter_with_dev_df(temp_df, vals_col=orig_col, time_col=None,
+                                               win_size=window_size.value,
+                                               num_dev=dev_size.value,
+                                               center_win=center_window.value)
             with g.batch_update():
                 pass
                 g.data[0].x = new_df.index
