@@ -7,6 +7,7 @@ __all__ = ["hampel_interactive"]
 
 def hampel_interactive(df_list: list, key_col, orig_col: str, filtered_col: str, outlier_col: str):
     """
+    Function to create interactive plots from list of Hampel filter dataframes
 
     Parameters
     ----------
@@ -104,6 +105,8 @@ def hampel_interactive(df_list: list, key_col, orig_col: str, filtered_col: str,
 def hampel_interactive_with_dev(df_list: list, key_col, orig_col: str, filtered_col: str, outlier_col: str,
                                 lower_dev_col: str, upper_dev_col: str):
     """
+    Function to create interactive plots from list of Hampel filter dataframes, also including
+    lower and upper deviation values.
 
     Parameters
     ----------
