@@ -108,7 +108,7 @@ def hampel_filter_df(df: pd.DataFrame, vals_col: str, time_col=None, win_size=30
 
 
 def hampel_filter_with_dev_df(df: pd.DataFrame, vals_col: str, time_col=None, win_size=30, num_dev=3,
-                     center_win=True) -> pd.DataFrame:
+                              center_win=True) -> pd.DataFrame:
     """
     This function takes in dataframe containing time series of values, applies Hampel filter on
     these values, and returns dataframe consisting of original values columns along with

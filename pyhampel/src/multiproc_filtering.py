@@ -1,4 +1,6 @@
-
+"""
+This module contains filtering function that leverage multiprocessor capability
+"""
 
 import multiprocessing as mp
 import pandas as pd
