@@ -3,7 +3,6 @@ This module contains filtering function that leverage multiprocessor capability
 """
 
 import multiprocessing as mp
-import pandas as pd
 
 __all__ = ["hampel_with_dev_mp"]
 
@@ -40,7 +39,7 @@ def hampel_with_dev_mp(g_list: list, vals_col: str, time_col=None, win_size=30, 
 
     # The code for the Hampel filter needed to be added to a separate file for
     # this multiprocessing call to work.  HampelFilter.py needs to be in the local directory.
-    from HampelFilteringWithDev import hampel_filter_with_dev_df
+    from HampelWithDev import hampel_filter_with_dev_df
 
     __name__ = '__main__'
 
