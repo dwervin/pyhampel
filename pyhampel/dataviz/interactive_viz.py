@@ -184,6 +184,10 @@ def hampel_interactive_with_dev(df_list: list, key_col, orig_col: str, filtered_
                 g.data[1].y = new_df[filtered_col]
                 g.data[2].x = new_df.index
                 g.data[2].y = new_df[outlier_col]
+                g.data[3].x = new_df.index
+                g.data[3].y = new_df[lower_dev_col]
+                g.data[4].x = new_df.index
+                g.data[4].y = new_df[upper_dev_col]
                 g.layout.title = "Usage for " + str(df_list[list_idx.value][key_col].unique()[0])
                 g.layout.xaxis.title = 'Date'
                 g.layout.yaxis.title = 'Usage'
@@ -196,6 +200,12 @@ def hampel_interactive_with_dev(df_list: list, key_col, orig_col: str, filtered_
                 g.data[1].y = df_list[list_idx.value][filtered_col]
                 g.data[2].x = df_list[list_idx.value].index
                 g.data[2].y = df_list[list_idx.value][outlier_col]
+
+                g.data[3].x = df_list[list_idx.value].index
+                g.data[3].y = df_list[list_idx.value][lower_dev_col]
+                g.data[4].x = df_list[list_idx.value].index
+                g.data[4].y = df_list[list_idx.value][upper_dev_col]
+
                 g.layout.title = "Usage for " + str(df_list[list_idx.value][key_col].unique()[0])
                 g.layout.xaxis.title = 'Date'
                 g.layout.yaxis.title = 'Usage'
